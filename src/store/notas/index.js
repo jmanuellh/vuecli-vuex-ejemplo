@@ -20,8 +20,8 @@ export default {
             })
         },
         agregarNota: context => {
-            console.log("");
-            // axios.post(urlBase, context.rootState.nota.obtenerNota)
+            // console.log(context.rootGetters['nota/obtenerNota']);
+            axios.post(urlBase, context.rootState.nota.obtenerNota)
         }
     }
 }

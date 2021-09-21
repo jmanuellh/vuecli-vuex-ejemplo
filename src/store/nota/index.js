@@ -2,9 +2,9 @@ export default {
     namespaced: true,
     state: {
         nota: {
-            titulo: "titulo 1"
-        },
-        titulo: "titulo 1"
+            titulo: "",
+            contenido: ""
+        }
     },
     getters: {
         obtenerNota: state => state.nota,

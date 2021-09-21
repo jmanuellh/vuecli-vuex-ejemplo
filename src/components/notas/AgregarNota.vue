@@ -1,13 +1,13 @@
 <template>
     <section>
         <div>
-            <input v-model="nota.titulo">
+            <input v-model="obtenerTitulo" @change="cambio">
         </div>
         <div>
-            <input v-model="nota.contenido">
+            <input v-model="obtenerTitulo" @change="cambio">
         </div>
         <div>
-            <button @click="agregarNota()">agregar</button>
+            <button @click="agregarNota">agregar</button>
         </div>
     </section>
 </template>
@@ -15,22 +15,37 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
-</script>
-
-<script>
-
-
 export default {
     name: "AgregarNota",
+    data() {
+        return {
+            nota: {},
+            titulo: ""
+        }
+    },
     computed: {
-        ...mapGetters({
-            nota: "nota/obtenerNota"
-        })
+        obtenerTitulo: {
+            get() {
+                return this.titulo
+                // return this.$store.getters["nota/obtenerNota"]
+            },
+            set(value) {
+                this.titulo = value
+                console.log("value: ", value)
+                // this.$store.dispatch("nota/obtenerNota", value)
+            }
+        }
+        // ...mapGetters({
+        //     nota: "nota/obtenerNota"
+        // })
     },
     methods: {
         ...mapActions({
             agregarNota: "notas/agregarNota"
-        })
+        }),
+        cambio() {
+            console.log("cambio")
+        }
     }
 }
 </script>
