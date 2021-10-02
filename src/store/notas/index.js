@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const urlBase = "https://erpbackaspnetcore31.azurewebsites.net/api/notas"
+const urlBase = process.env.VUE_APP_NOTAS_URL_BASE
 
 export default {
     namespaced: true,
