@@ -15,14 +15,5 @@ export default new Vuex.Store({
   modules: {
     nota,
     notas
-    // {
-    //   namespaced: true,
-    //   state: {
-    //       titulo: "titulo 1"
-    //   },
-    //   getters: {
-    //       obtenerTitulo: state => state.titulo
-    //   }
-    // }
   }
 })

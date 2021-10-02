@@ -11,7 +11,13 @@ export default {
         obtenerNotas: state => state.notas
     },
     mutations: {
-        ACTUALIZAR_NOTAS: (state, notas) => state.notas = notas
+        ACTUALIZAR_NOTAS: (state, notas) => {
+            state.notas = notas
+        },
+        LIMPIAR_NOTA: (state) => {
+            state.titulo = "",
+            state.contenido = ""
+        }
     },
     actions: {
         consultarNotas: context => {
@@ -21,7 +27,11 @@ export default {
         },
         agregarNota: context => {
             // console.log(context.rootGetters['nota/obtenerNota']);
-            axios.post(urlBase, context.rootState.nota.obtenerNota)
+            // console.log(context.rootGetters['nota/obtenerNota'])
+            axios.post(urlBase, context.rootGetters['nota/obtenerNota']).then(() => {
+                context.dispatch('consultarNotas')
+                context.dispatch('nota/limpiarNota', null, { root: true })
+            })
         }
     }
 }

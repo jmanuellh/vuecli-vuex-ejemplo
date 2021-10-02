@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <Entrada />
-    <Boton />
     <AgregarNota />
     <TablaNotas />
   </div>
